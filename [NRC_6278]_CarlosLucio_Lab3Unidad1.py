@@ -92,7 +92,7 @@ class Grafo():
         if not self.m_dirigido: 
             #Ingreso del nodo1 a la lista de adyacencia del nodo2
             self.m_adyacencia_lista[nodo2].add((nodo1, peso)) #Añadir el nodo1 a la lista de adyacencia del nodo2
-            
+
     # Imprime la representación del grafo
     def mostrar_lista_adyacencia(self):
         '''
@@ -106,3 +106,48 @@ class Grafo():
         for clave in self.m_adyacencia_lista.keys(): 
             #Muestra en la terminal el grafo
             print("Nodo", clave, ": ", self.m_adyacencia_lista[clave]) 
+
+    #Recorrido en anchura
+    def dfs(self, inicio, objetivo, ruta = [], visitado = set()):
+        """
+        Esta funcion permite realizar el recorrido en anchura en base a un
+        vértice dado y el objetivo a encontrar en el grafo generado 
+         
+        Parametros:
+            ruta: lista
+                Representa el nodo de inicio del recorrido
+            visitado: diccionario
+                Representa al diccionario de datos
+
+        Retorna:
+            No retorna nada
+        """
+        #Se añade a la ruta el nodo inicial
+        ruta.append(inicio) 
+        #Se añade a la la lista de nodos visitados el nodo inicial
+        visitado.add(inicio) 
+         #Si inicio es igual a objetivo
+        '''
+            Este condicional permite determinar si el nodo inicio es igual al objetivo
+            en caso de que sea igual se imprime la ruta
+        '''
+        if inicio == objetivo: 
+            return ruta #Retorna la ruta
+        ''' 
+            Esta estructura ciclica permite recorrer la lista de adyacencia
+            de cada nodo
+            Si el vecino no es visitado se realiza el recorrido en anchura
+            Si el resultado del recorrido en anchura no es nulo se retorna el resultado
+        '''
+        for(vecino, peso) in self.m_lista_adyacencia[inicio]: 
+            if vecino not in visitado:  #Si el vecino no se encuentra en el diccionario de nodos visitados
+                resultado = self.dfs(vecino, objetivo, ruta, visitado) #se asigna a la variable resultado el nodo vecino, el objetivo, la ruta y la lista de nodos visitados
+                #Si la lista resultado no esta vacio
+                if resultado is not None: 
+                    return resultado #Retorna resultado
+                    
+        '''
+        Implementación de la función recursiva dfs
+        '''
+        ruta.pop() # elimina y retorna el elemento de la ruta
+        return None 
