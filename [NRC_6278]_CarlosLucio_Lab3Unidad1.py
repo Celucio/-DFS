@@ -107,7 +107,7 @@ class Grafo():
             #Muestra en la terminal el grafo
             print("Nodo", clave, ": ", self.m_adyacencia_lista[clave]) 
 
-    #Recorrido en anchura
+    #Recorrido en amplitud
     def dfs(self, inicio, objetivo, ruta = [], visitado = set()):
         """
         Esta funcion permite realizar el recorrido en anchura en base a un
