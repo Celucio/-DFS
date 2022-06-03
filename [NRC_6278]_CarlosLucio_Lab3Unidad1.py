@@ -37,3 +37,35 @@ class Grafo():
             vértice dado
 
     '''
+    def __init__(self, numero_de_nodos, dirigido=True):
+
+        '''
+        Este metodo permite instanciar el objeto de la clase Grafo por medio 
+        Por medio de parámetros de entrada recibe el numero de nodos e indica 
+        si el grafo es dirigido o no
+        --------------------------------------------------------------
+        Parametros(self, numero_de_nodos, dirigido=True):
+            numero_de_nodos: int
+                Representa el numero de nodos que tendra el grafo
+            dirigido: bool
+                Representa si el grafo es dirigido o no
+        Retorna:
+            No retorna nada
+        --------------------------------------------------------------
+        '''
+        #Asignación del numero de nodos a nodo recibido por parámetro
+        self.m_numero_de_nodos = numero_de_nodos 
+        '''
+        Esta variable determinar el rango de nodos que tendra el grafo
+        enviando como parámetro la variable generada nodo.matriz_numero_de_nodos
+        '''
+        #Mide el rango de nodos
+        self.m_nodos = range(self.m_numero_de_nodos) 
+		
+        #Dirigido o No Dirigido
+        self.m_dirigido = dirigido
+        '''
+        Esta asignación representa la creación de un diccionario de datos
+        Este determina el espacio en donde se almacenarán los nodos
+        '''
+        self.m_adyacencia_lista = {self: set() for self in self.m_nodos}     
