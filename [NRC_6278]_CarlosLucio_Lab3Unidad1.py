@@ -139,7 +139,7 @@ class Grafo():
             Si el vecino no es visitado se realiza el recorrido en anchura
             Si el resultado del recorrido en anchura no es nulo se retorna el resultado
         '''
-        for(vecino, peso) in self.m_lista_adyacencia[inicio]: 
+        for(vecino, peso) in self.m_adyacencia_lista[inicio]: 
             if vecino not in visitado:  #Si el vecino no se encuentra en el diccionario de nodos visitados
                 resultado = self.dfs(vecino, objetivo, ruta, visitado) #se asigna a la variable resultado el nodo vecino, el objetivo, la ruta y la lista de nodos visitados
                 #Si la lista resultado no esta vacio
@@ -154,7 +154,7 @@ class Grafo():
 
 if __name__ == "__main__":
     #Creación del grafo
-    grafo = Grafo(5, directed=False)
+    grafo = Grafo(5, dirigido=False)
 
     #Añadir nodos al grafo
     grafo.añadir_nodo(0, 1)
