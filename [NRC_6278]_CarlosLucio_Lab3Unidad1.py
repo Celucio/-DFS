@@ -151,7 +151,7 @@ class Grafo():
         '''
         ruta.pop() # elimina y retorna el elemento de la ruta
         return None 
-        
+
 if __name__ == "__main__":
     #Creación del grafo
     grafo = Grafo(5, directed=False)
@@ -168,4 +168,4 @@ if __name__ == "__main__":
 
     ruta_transversal = []
     ruta_transversal = grafo.dfs(0, 3)
-    print(f" The traversal path from node 0 to node 3 is {ruta_transversal}")
+    print(f" La ruta trasversal desde el nodo 0 hasta el nodo 3 es {ruta_transversal}")
