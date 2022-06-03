@@ -153,7 +153,8 @@ class Grafo():
         return None 
 
 if __name__ == "__main__":
-    #Creación del grafo
+    '''
+     #Creación del grafo
     grafo = Grafo(5, dirigido=False)
 
     #Añadir nodos al grafo
@@ -169,3 +170,67 @@ if __name__ == "__main__":
     ruta_transversal = []
     ruta_transversal = grafo.dfs(0, 3)
     print(f" La ruta trasversal desde el nodo 0 hasta el nodo 3 es {ruta_transversal}")
+    
+    print("--------------------------------------------")
+    print("Implementación de un nuevo grafo para el caso 1")
+    grafo1 = Grafo(4, True)
+    #Añadir nodos al grafo
+    grafo1.añadir_nodo(0, 1)
+    grafo1.añadir_nodo(0, 2)
+    grafo1.añadir_nodo(0, 3)
+    grafo1.añadir_nodo(1, 2)
+    grafo1.añadir_nodo(1, 3)
+    grafo1.añadir_nodo(2, 3)
+    grafo1.añadir_nodo(3, 1)
+    #Mostrar la lista de adyacencia
+    grafo1.mostrar_lista_adyacencia()
+    #Generar la ruta transversal
+    ruta_transversal1 = []
+    ruta_transversal1 = grafo1.dfs(0, 3)
+    print(f" La ruta trasversal desde el nodo 0 hasta el nodo 3 es {ruta_transversal1}")
+    
+    #Creación del grafo
+    print("--------------------------------------------")
+    print("Implementación de un nuevo grafo para el caso 2")
+    g2 = Grafo(8, dirigido=True)
+    #Agregue bordes al grafo con peso predeterminado = 1
+    g2.añadir_nodo(0, 1)
+    g2.añadir_nodo(0, 5)
+    g2.añadir_nodo(1, 5)
+    g2.añadir_nodo(2, 1)
+    g2.añadir_nodo(2, 5)
+    g2.añadir_nodo(2, 4)
+    g2.añadir_nodo(3, 4)
+    g2.añadir_nodo(3, 7)
+    g2.añadir_nodo(4, 2)
+    g2.añadir_nodo(5, 3)
+    g2.añadir_nodo(5, 4)
+    g2.añadir_nodo(6, 3)
+    g2.añadir_nodo(6, 7)
+    g2.añadir_nodo(7, 6)
+
+    #Mostrar la lista de adyacencia
+    g2.mostrar_lista_adyacencia()
+
+    #Generar la ruta transversal
+    ruta_transversal2 = []
+    ruta_transversal2 = g2.dfs(0, 7)
+    print(f" La ruta trasversal desde el nodo 0 hasta el nodo 7 es {ruta_transversal2}")
+    '''
+    #Creación del grafo
+    print("--------------------------------------------")
+    print("Implementación de un nuevo grafo para el caso 3")
+    #Instanciamos el nuevo objeto
+    g3 = Grafo(3, dirigido=True)
+    #Agregue bordes al grafo con peso predeterminado = 1
+    g3.añadir_nodo(0, 1, 3)
+    g3.añadir_nodo(0, 2, 2)
+    g3.añadir_nodo(1, 2, 5)
+    g3.añadir_nodo(2, 0, 4)
+    #Imprime el grafo generado en el formulario nodo n: {(nodo, peso)}
+    g3.mostrar_lista_adyacencia()
+    #Generar la ruta transversal
+    ruta_transversal3 = []
+    ruta_transversal3 = g3.dfs(0, 2)
+    print(f" La ruta trasversal desde el nodo 0 hasta el nodo 2 es {ruta_transversal3}")
+
