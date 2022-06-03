@@ -69,3 +69,26 @@ class Grafo():
         Este determina el espacio en donde se almacenarán los nodos
         '''
         self.m_adyacencia_lista = {self: set() for self in self.m_nodos}     
+
+    #Añade un nodo al grafo
+    def añadir_nodo(self, nodo1, nodo2, peso=1):
+        '''
+        Funcion que recibe por parámetro los nodos 1 y 2, además del peso
+        Asigna cada uno de los nodos a la lista de adyacencia.
+
+        Parametros: (self, nodo1, nodo2, peso=1)
+            nodo1: int
+                Representa el nodo 1
+            nodo2: int
+                Representa el nodo 2
+            peso: int
+                Representa el peso de la arista
+        Retorna:
+            No retorna nada
+        '''
+        #Ingreso del nodo2 a la lista de adyacencia del nodo1
+        self.m_adyacencia_lista[nodo1].add((nodo2, peso))
+        #Estructura condicional en caso de que no sea dirigido
+        if not self.m_dirigido: 
+            #Ingreso del nodo1 a la lista de adyacencia del nodo2
+            self.m_adyacencia_lista[nodo2].add((nodo1, peso)) #Añadir el nodo1 a la lista de adyacencia del nodo2
